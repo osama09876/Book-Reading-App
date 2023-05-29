@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 10,
+                  height: 15,
                 ),
                 AnimatedBuilder(
                   animation: controller,

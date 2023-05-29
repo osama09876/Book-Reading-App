@@ -1,3 +1,4 @@
+import 'package:book_reading_app/Views/OTP_Screen.dart';
 import 'package:book_reading_app/Views/Splash_Screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,12 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.orange,
       ),
-      home: SplashScreen(),
+      home: OtpScreen(),
     );
   }
 }

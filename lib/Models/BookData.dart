@@ -9,19 +9,22 @@ class BookContent {
       bookRating: 7200.50,
       bookPub: 'Abc',
       pdfUrl: 'assets/pdflists',
+      reveiws: '120 reveiws',
     ),
   ];
 }
 
 class BookModel {
-  BookModel(
-      {this.bookId,
-      this.bookName,
-      this.bookImage,
-      this.bookRating,
-      this.bookAuth,
-      this.bookPub,
-      this.pdfUrl});
+  BookModel({
+    this.bookId,
+    this.bookName,
+    this.bookImage,
+    this.bookRating,
+    this.bookAuth,
+    this.bookPub,
+    this.pdfUrl,
+    this.reveiws,
+  });
 
   String? bookId;
   String? bookName;
@@ -30,4 +33,5 @@ class BookModel {
   double? bookRating;
   String? bookImage;
   String? pdfUrl;
+  String? reveiws;
 }

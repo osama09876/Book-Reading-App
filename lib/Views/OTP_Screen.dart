@@ -1,7 +1,8 @@
-import 'package:book_reading_app/Views/Custom_opt.dart';
+import 'package:book_reading_app/UI%20Helper/Custom_opt.dart';
 import 'package:book_reading_app/Views/MainScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
+import '../UI Helper/CustomColors.dart' as color;
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
@@ -18,9 +19,16 @@ class _OtpScreenState extends State<OtpScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
         centerTitle: true,
         leading: const Icon(Icons.arrow_back),
-        title: const Text('Verification Screen'),
+        title: const Text(
+          'Verification Screen',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(

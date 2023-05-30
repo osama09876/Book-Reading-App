@@ -1,6 +1,8 @@
-import 'package:book_reading_app/Views/OTP_Screen.dart';
+import 'package:book_reading_app/Views/MainScreen.dart';
+// import 'package:book_reading_app/Views/OTP_Screen.dart';
 // import 'package:book_reading_app/Views/Splash_Screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +18,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.orange,
+        textTheme: GoogleFonts.catamaranTextTheme(),
       ),
-      home: OtpScreen(),
+      home: MainScreen(),
     );
   }
 }

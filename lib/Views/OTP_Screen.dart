@@ -2,7 +2,7 @@ import 'package:book_reading_app/UI%20Helper/Custom_opt.dart';
 import 'package:book_reading_app/Views/MainScreen.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
-import '../UI Helper/CustomColors.dart' as color;
+// import '../UI Helper/CustomColors.dart' as color;
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});

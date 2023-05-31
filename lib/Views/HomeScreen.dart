@@ -1,7 +1,12 @@
+// import 'package:book_reading_app/Views/ContinueBookPage.dart';
+import 'package:book_reading_app/Views/ReadingPdf.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:carousel_slider/carousel_controller.dart';
+import '../Models/BookData.dart';
+import 'package:pdfx/pdfx.dart';
+// import 'package:flutter_pdfview/flutter_pdfview.dart';
+// import 'package:carousel_slider/carousel_controller.dart';
 
 class MainHomeScreen extends StatefulWidget {
   const MainHomeScreen({super.key});
@@ -11,6 +16,12 @@ class MainHomeScreen extends StatefulWidget {
 }
 
 class _MainHomeScreenState extends State<MainHomeScreen> {
+  late PdfController pdfController;
+  loadController() {
+    pdfController = PdfController(document: PdfDocument.openAsset(''));
+  }
+
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     List imageList = [
@@ -20,7 +31,6 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     ];
 
     final CarouselController carouselController = CarouselController();
-    int index = 0;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -95,21 +105,41 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Row(
+          SizedBox(
+            height: 16,
+          ),
+          Expanded(
+            child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              itemCount: BookContent.bookData.length,
+              itemBuilder: (context, i) {
+                final data = BookContent.bookData[i];
+                return Padding(
+                  padding: const EdgeInsets.only(left: 15, bottom: 15),
+                  child: Row(
                     children: [
-                      Container(
-                        height: 180,
-                        width: 140,
-                        color: Colors.red,
+                      GestureDetector(
+                        onTap: () {
+                          print('Book open');
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ReadingBook(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          height: 180,
+                          width: 140,
+                          decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(.5),
+                          ),
+                          child: Image(
+                            fit: BoxFit.cover,
+                            image: AssetImage(data.bookImage!),
+                          ),
+                        ),
                       ),
                       SizedBox(
                         width: 15,
@@ -117,11 +147,19 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Title here...'),
+                          Text(
+                            data.bookName.toString(),
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
                           SizedBox(
                             height: 8,
                           ),
-                          Text('Author here...'),
+                          Text(
+                            data.bookAuth.toString(),
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w600),
+                          ),
                           SizedBox(
                             height: 8,
                           ),
@@ -134,15 +172,15 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                               SizedBox(
                                 width: 8,
                               ),
-                              Text('4.2'),
+                              Text(data.bookRating.toString()),
                             ],
                           ),
                         ],
                       ),
                     ],
                   ),
-                ],
-              ),
+                );
+              },
             ),
           ),
         ],

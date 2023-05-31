@@ -1,6 +1,6 @@
 import 'package:book_reading_app/Views/HomeScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

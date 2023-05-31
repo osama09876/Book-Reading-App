@@ -20,17 +20,15 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     controller.dispose();
     super.dispose();
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
-    Future.delayed(const Duration(seconds: 3)).then((value) {
+    Future.delayed(Duration(seconds: 3)).then((value) {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(

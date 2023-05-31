@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-class CustomColors {
-  // CustomColors(this.whitecolor);
-  Color whitecolor = Colors.white;
-  Color deepcolor = Colors.orange;
-}
+const wrcolor = Colors.white;
+const themeColor = Colors.orange;
+const ylcolor = Colors.yellow;

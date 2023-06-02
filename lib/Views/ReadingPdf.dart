@@ -1,28 +1,14 @@
-// import 'package:book_reading_app/Models/BookData.dart';
+import 'package:book_reading_app/Models/BookData.dart';
+import '../UI Helper/CustomColors.dart';
 import 'package:flutter/material.dart';
 import 'package:pdfx/pdfx.dart';
-import '../UI Helper/CustomColors.dart';
 
-class ReadingBook extends StatefulWidget {
-  ReadingBook({super.key});
+class ReadingBook extends StatelessWidget {
+  ReadingBook({super.key, required this.comingdata});
+  final BookModel comingdata;
 
-  @override
-  State<ReadingBook> createState() => _ReadingBookState();
-}
-
-class _ReadingBookState extends State<ReadingBook> {
-  late PdfController pdfController;
-  loadController() {
-    pdfController = PdfController(
-        document: PdfDocument.openAsset('assets/pdflists/book1.pdf'));
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    loadController();
-  }
+  late PdfController pdfController =
+      PdfController(document: PdfDocument.openAsset('${comingdata.pdfUrl}'));
 
   @override
   Widget build(BuildContext context) {

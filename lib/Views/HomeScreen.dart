@@ -1,4 +1,5 @@
 // import 'package:book_reading_app/Views/ContinueBookPage.dart';
+import 'package:book_reading_app/Views/BookPreview.dart';
 import 'package:book_reading_app/Views/ReadingPdf.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,7 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
               right: 16,
             ),
             decoration: BoxDecoration(
-              color: Colors.white,
+              // color: Colors.white,
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(40),
               ),
@@ -125,7 +126,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ReadingBook(),
+                              builder: (context) => BookPreview(
+                                comingdata: data,
+                              ),
                             ),
                           );
                         },
@@ -150,7 +153,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                           Text(
                             data.bookName.toString(),
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           SizedBox(
                             height: 8,
@@ -158,7 +163,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                           Text(
                             data.bookAuth.toString(),
                             style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w600),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                           SizedBox(
                             height: 8,
@@ -172,7 +179,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                               SizedBox(
                                 width: 8,
                               ),
-                              Text(data.bookRating.toString()),
+                              Text(
+                                data.bookRating.toString(),
+                              ),
                             ],
                           ),
                         ],

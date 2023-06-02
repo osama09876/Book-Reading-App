@@ -1,6 +1,4 @@
 import 'package:book_reading_app/Views/MainScreen.dart';
-// import 'package:book_reading_app/Views/OTP_Screen.dart';
-// import 'package:book_reading_app/Views/Splash_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'UI Helper/CustomColors.dart';

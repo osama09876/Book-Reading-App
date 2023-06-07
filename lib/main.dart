@@ -7,6 +7,7 @@ import 'package:book_reading_app/Views/Profile.dart';
 import 'package:book_reading_app/Views/SignUp_Screen.dart';
 import 'package:book_reading_app/Views/Splash_Screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'UI Helper/CustomColors.dart';
 
@@ -19,13 +20,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: themeColor,
           textTheme: GoogleFonts.catamaranTextTheme(),
         ),
+        darkTheme: ThemeData.dark(),
+        themeMode: ThemeMode.system,
         // home: SplashScreen(),
         routes: {
           '/': (context) => SplashScreen(),

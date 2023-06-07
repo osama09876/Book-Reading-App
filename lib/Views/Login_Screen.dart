@@ -84,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: passwordcontroller,
                     obscureText: isVisible,
                     decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.key_outlined),
+                        prefixIcon: Icon(Icons.lock),
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -186,7 +186,12 @@ class _LoginScreenState extends State<LoginScreen> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Error'),
+          title: const Text(
+            'Success',
+            style: TextStyle(
+              color: Colors.green,
+            ),
+          ),
           content: const SingleChildScrollView(
             child: ListBody(
               children: <Widget>[

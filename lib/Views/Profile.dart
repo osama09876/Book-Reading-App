@@ -2,6 +2,8 @@
 import 'package:book_reading_app/UI%20Helper/CustomColors.dart';
 // import 'package:book_reading_app/Views/HomeScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import 'MainScreen.dart';
 
@@ -40,6 +42,15 @@ class _ProfileState extends State<Profile> {
         //     },
         //   )
         // ],
+        actions: [
+          IconButton(
+              icon: const Icon(Icons.lightbulb),
+              onPressed: () {
+                Get.isDarkMode
+                    ? Get.changeTheme(ThemeData.light())
+                    : Get.changeTheme(ThemeData.dark());
+              })
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 14, right: 14),

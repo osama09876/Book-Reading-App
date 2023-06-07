@@ -1,3 +1,4 @@
+import 'package:book_reading_app/UI%20Helper/CustomColors.dart';
 import 'package:book_reading_app/UI%20Helper/Custom_otp.dart';
 // import 'package:book_reading_app/Views/MainScreen.dart';
 import 'package:flutter/material.dart';
@@ -152,7 +153,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     },
                     child: Container(
                       height: 50,
-                      decoration: BoxDecoration(color: Colors.blue.shade700),
+                      decoration: BoxDecoration(color: darkcolor),
                       child: Center(
                         child: Text(
                           'Submit',

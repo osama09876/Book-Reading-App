@@ -1,4 +1,5 @@
 // import 'package:book_reading_app/Views/ContinueBookPage.dart';
+import 'package:book_reading_app/UI%20Helper/CustomColors.dart';
 import 'package:book_reading_app/Views/BookPreview.dart';
 // import 'package:book_reading_app/Views/ReadingPdf.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -32,9 +33,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
     final CarouselController carouselController = CarouselController();
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: darkcolor,
         elevation: 0,
         leading: Icon(
           Icons.sort,
@@ -54,6 +55,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: 10,
+          ),
           CarouselSlider(
             items: imageList
                 .map(
@@ -179,6 +183,9 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
                               ),
                               Text(
                                 data.bookRating.toString(),
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ],
                           ),

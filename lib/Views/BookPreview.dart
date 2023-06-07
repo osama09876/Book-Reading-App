@@ -15,8 +15,15 @@ class BookPreview extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // title: Text('Book Preview'),
-        backgroundColor: wrcolor,
+        backgroundColor: darkcolor,
         elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_outlined),
+          color: wrcolor,
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -31,6 +38,26 @@ class BookPreview extends StatelessWidget {
                   child: Image(
                     image: AssetImage('${comingdata.bookImage}'),
                   ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.star,
+                      color: Colors.yellow,
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      comingdata.bookRating.toString(),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Container(
@@ -50,28 +77,32 @@ class BookPreview extends StatelessWidget {
                     fontSize: 22,
                     fontWeight: FontWeight.bold),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ReadingBook(comingdata: comingdata),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ReadingBook(comingdata: comingdata),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: darkcolor,
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                  );
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: darkcolor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  height: 45,
-                  child: Center(
-                    child: Text(
-                      'Continue Reading',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22,
-                          color: wrcolor),
+                    height: 45,
+                    child: Center(
+                      child: Text(
+                        'Continue Reading',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                            color: wrcolor),
+                      ),
                     ),
                   ),
                 ),

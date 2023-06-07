@@ -14,11 +14,11 @@ class ReadingBook extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Continue reading',
-          style: TextStyle(fontWeight: FontWeight.bold, color: themeColor),
-        ),
+        // centerTitle: true,
+        // title: Text(
+        //   'Continue reading',
+        //   style: TextStyle(fontWeight: FontWeight.bold, color: themeColor),
+        // ),
         backgroundColor: wrcolor,
         elevation: 0,
         leading: IconButton(
@@ -26,7 +26,7 @@ class ReadingBook extends StatelessWidget {
             Navigator.pop(context);
           },
           icon: Icon(Icons.cancel_sharp),
-          color: themeColor,
+          color: Color.fromARGB(255, 4, 27, 31),
         ),
       ),
       body: PdfView(controller: pdfController),

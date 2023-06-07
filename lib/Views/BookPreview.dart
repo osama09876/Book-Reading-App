@@ -1,10 +1,10 @@
 import 'package:book_reading_app/Views/ReadingPdf.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 import '../UI Helper/CustomColors.dart';
 
 import '../Models/BookData.dart';
-import '../providers/bookMark.dart';
+// import '../providers/bookMark.dart';
 
 class BookPreview extends StatelessWidget {
   BookPreview({super.key, required this.comingdata});
@@ -12,10 +12,11 @@ class BookPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final fprovider = Provider.of<FavoriteProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Book Preview'),
+        // title: Text('Book Preview'),
+        backgroundColor: wrcolor,
+        elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -60,15 +61,17 @@ class BookPreview extends StatelessWidget {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: themeColor,
+                    color: darkcolor,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: 45,
                   child: Center(
                     child: Text(
                       'Continue Reading',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          color: wrcolor),
                     ),
                   ),
                 ),

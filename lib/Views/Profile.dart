@@ -1,6 +1,9 @@
 // import 'package:book_reading_app/Custom%20Theme/ThemeManager.dart';
 import 'package:book_reading_app/UI%20Helper/CustomColors.dart';
+// import 'package:book_reading_app/Views/HomeScreen.dart';
 import 'package:flutter/material.dart';
+
+import 'MainScreen.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -13,12 +16,22 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Color.fromARGB(255, 55, 89, 99),
       appBar: AppBar(
+        backgroundColor: darkcolor,
+        title: Text(
+          'Profile',
+          style: TextStyle(color: wrcolor),
+        ),
+        centerTitle: true,
         leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(Icons.arrow_back)),
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MainScreen()));
+          },
+          icon: Icon(Icons.arrow_back),
+          color: wrcolor,
+        ),
         // actions: [
         //   Switch(
         //     value: thememanager.themeMode == ThemeMode.dark,
@@ -48,6 +61,7 @@ class _ProfileState extends State<Profile> {
               width: 150,
               child: Image(
                 image: AssetImage('assets/images/person2.png'),
+                fit: BoxFit.cover,
               ),
             ),
             SizedBox(
@@ -55,44 +69,63 @@ class _ProfileState extends State<Profile> {
             ),
             CustomListTile(
                 itemName: 'Profile',
-                trailingIcon: Icons.person_2_outlined,
-                icons: Icons.arrow_circle_right_outlined,
+                trailingIcon: Icons.arrow_circle_right_outlined,
+                icons: Icons.person_2_outlined,
                 ontap: () {}),
             SizedBox(
               height: 15,
             ),
             CustomListTile(
                 itemName: 'Help & Support',
-                trailingIcon: Icons.question_mark_rounded,
-                icons: Icons.arrow_circle_right_outlined,
+                trailingIcon: Icons.arrow_circle_right_outlined,
+                icons: Icons.question_mark_rounded,
                 ontap: () {}),
             SizedBox(
               height: 15,
             ),
             CustomListTile(
                 itemName: 'Settings',
-                trailingIcon: Icons.settings,
-                icons: Icons.arrow_circle_right_outlined,
+                trailingIcon: Icons.arrow_circle_right_outlined,
+                icons: Icons.settings,
                 ontap: () {}),
             SizedBox(
               height: 15,
             ),
             CustomListTile(
                 itemName: 'Invite Firends',
-                trailingIcon: Icons.person_add_alt_1_outlined,
-                icons: Icons.arrow_circle_right_outlined,
+                trailingIcon: Icons.arrow_circle_right_outlined,
+                icons: Icons.person_add_alt_1_outlined,
                 ontap: () {}),
             SizedBox(
               height: 15,
             ),
-            CustomListTile(
-                itemName: 'Logout',
-                trailingIcon: Icons.logout_outlined,
-                icons: Icons.arrow_circle_right_outlined,
-                ontap: () {
-                  print('logout');
-                  Navigator.pop(context);
-                }),
+            // CustomListTile(
+            //     itemName: 'Logout',
+            //     trailingIcon: ,
+            //     icons:
+            //     ontap: () {
+            //       print('logout');
+            //       Navigator.pop(context);
+            //     }),
+            Container(
+              decoration: BoxDecoration(
+                color: darkcolor,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              width: 360,
+              child: ListTile(
+                trailing: Icon(Icons.arrow_circle_right_outlined),
+                iconColor: wrcolor,
+                leading: Icon(Icons.logout_outlined),
+                title: Text(
+                  'Logout',
+                  style: TextStyle(color: wrcolor),
+                ),
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/login');
+                },
+              ),
+            ),
             SizedBox(
               height: 15,
             ),
@@ -120,7 +153,7 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: themeColor,
+        color: darkcolor,
         borderRadius: BorderRadius.circular(15),
       ),
       width: 360,

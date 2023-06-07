@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:math' as math;
-import 'package:book_reading_app/Views/Login_Screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-// import 'dart:math' as math;
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,26 +12,15 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
-  late final AnimationController controller =
-      AnimationController(duration: Duration(seconds: 3), vsync: this)
-        ..repeat();
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
   @override
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 3)).then((value) {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const LoginScreen(),
-          ));
+    Timer(Duration(seconds: 4), () {
+      Navigator.pushReplacementNamed(
+        context,
+        '/login',
+      );
     });
   }
 
@@ -53,32 +40,39 @@ class _SplashScreenState extends State<SplashScreen>
                 SizedBox(
                   height: 15,
                 ),
-                AnimatedBuilder(
-                  animation: controller,
-                  child: Container(
-                    height: 330,
-                    width: 330,
-                    child: Center(
-                      child: Image(
-                          image: AssetImage('assets/images/WordsWorth.png')),
-                    ),
+                Center(
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 200,
+                        width: 200,
+                        child: Lottie.asset(
+                            'assets/lottie/99349-girl-with-books.json'),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'WordWorth',
+                        style: GoogleFonts.aclonica(
+                          fontSize: 25,
+                        ),
+                      ),
+                    ],
                   ),
-                  builder: (context, Widget? child) {
-                    return Transform.rotate(
-                      angle: controller.value * 2 * math.pi,
-                      child: child,
-                    );
-                  },
                 ),
+                Text(
+                  'Version 1.0.0',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+
                 // Image(
                 //   image: AssetImage('assets/images/WordsWorth.png'),
                 //   width: 300,
                 // ),
-                SpinKitFadingCube(
-                  color: Colors.orange,
-                  size: 50.0,
-                  // controller: controller,
-                ),
               ],
             ),
           ),

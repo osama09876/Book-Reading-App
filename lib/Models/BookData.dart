@@ -19,21 +19,32 @@ class BookContent {
       bookImage: 'assets/images/book2.jpg',
       bookAuth: 'JWilliam Shakespeare',
       bookRating: 4.7,
-      pdfUrl: 'assets/pdflists/book2.pdf',
+      pdfUrl: 'assets/pdflists/book3.pdf',
       reveiws: '20k reveiws',
       shortDes:
           "It is hard to imagine a world without Shakespeare. Since their composition four hundred years ago, Shakespeare’s plays and poems have traveled the globe, inviting those who see and read his works to make them their own.",
     ),
     BookModel(
-      bookId: '002',
+      bookId: '003',
       bookName: 'The Scarlet Pimpernel',
       bookImage: 'assets/images/image5.jpg',
       bookAuth: 'Michael H. HartBaroness Orczy',
       bookRating: 4.1,
-      pdfUrl: 'assets/pdflists/book5.pdf',
+      pdfUrl: 'assets/pdflists/book4.pdf',
       reveiws: '20k reveiws',
       shortDes:
           "The Scarlet Pimpernel is the first novel in a series of historical fiction by Baroness Orczy, published in 1905. It was written after her stage play of the same title (co-authored with Montague Barstow) enjoyed a long run in London, having opened in Nottingham in 1903.",
+    ),
+    BookModel(
+      bookId: '004',
+      bookName: 'King of Wrath ',
+      bookImage: 'assets/images/book5.jpg',
+      bookAuth: 'Ana Huang',
+      bookRating: 4.9,
+      pdfUrl: 'assets/pdflists/book5.pdf',
+      reveiws: '120k reveiws',
+      shortDes:
+          "She’s the wife he never wanted…and the weakness he never saw coming.Ruthless. Meticulous. Arrogant Dante Russo thrives on control, both personally and professionally The billionaire CEO never planned to marry until the threat of blackmail forces him into an engagement with a woman he barely knows.Vivian Lau, jewelry heiress and daughter of his newest enemy.",
     ),
   ];
 }

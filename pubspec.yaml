@@ -41,6 +41,7 @@ dependencies:
   carousel_slider: ^4.2.1
   shared_preferences: ^2.1.1
   provider: ^6.0.5
+  lottie: ^2.4.0
   # images_picker: ^1.2.11
 
 
@@ -70,6 +71,7 @@ flutter:
   assets:
     - assets/images/
     - assets/pdflists/
+    - assets/lottie/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

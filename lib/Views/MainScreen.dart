@@ -1,3 +1,4 @@
+import 'package:book_reading_app/UI%20Helper/CustomColors.dart';
 import 'package:book_reading_app/Views/HomeScreen.dart';
 import 'package:book_reading_app/Views/Profile.dart';
 import 'package:flutter/material.dart';
@@ -30,9 +31,11 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        // backgroundColor: darkcolor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
+            // backgroundColor: wrcolor,
             label: '',
           ),
           BottomNavigationBarItem(
@@ -41,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: darkcolor,
         onTap: _onItemTapped,
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:book_reading_app/UI%20Helper/Custom_otp.dart';
-import 'package:book_reading_app/Views/MainScreen.dart';
+// import 'package:book_reading_app/Views/MainScreen.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 // import '../UI Helper/CustomColors.dart' as color;
@@ -142,11 +142,9 @@ class _OtpScreenState extends State<OtpScreen> {
                   GestureDetector(
                     onTap: () {
                       if (FirstOPt.text.toString() == "2") {
-                        Navigator.pushReplacement(
+                        Navigator.pushReplacementNamed(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => MainScreen(),
-                          ),
+                          '/mainhome',
                         );
                       } else {
                         print('Error');

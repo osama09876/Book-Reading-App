@@ -1,13 +1,11 @@
 // import 'package:book_reading_app/Views/ContinueBookPage.dart';
 import 'package:book_reading_app/Views/BookPreview.dart';
-import 'package:book_reading_app/Views/ReadingPdf.dart';
+// import 'package:book_reading_app/Views/ReadingPdf.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../Models/BookData.dart';
-import 'package:pdfx/pdfx.dart';
-// import 'package:flutter_pdfview/flutter_pdfview.dart';
-// import 'package:carousel_slider/carousel_controller.dart';
+// import 'package:pdfx/pdfx.dart';
 
 class MainHomeScreen extends StatefulWidget {
   const MainHomeScreen({super.key});
@@ -17,10 +15,10 @@ class MainHomeScreen extends StatefulWidget {
 }
 
 class _MainHomeScreenState extends State<MainHomeScreen> {
-  late PdfController pdfController;
-  loadController() {
-    pdfController = PdfController(document: PdfDocument.openAsset(''));
-  }
+  // late PdfController pdfController;
+  // loadController() {
+  //   pdfController = PdfController(document: PdfDocument.openAsset(''));
+  // }
 
   int index = 0;
   @override

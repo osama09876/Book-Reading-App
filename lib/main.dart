@@ -27,9 +27,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: themeColor,
           textTheme: GoogleFonts.catamaranTextTheme(),
         ),
-        darkTheme: ThemeData.dark(),
-        themeMode: ThemeMode.system,
-        // home: SplashScreen(),
+        themeMode: ThemeMode.light,
         routes: {
           '/': (context) => SplashScreen(),
           '/login': (context) => LoginScreen(),

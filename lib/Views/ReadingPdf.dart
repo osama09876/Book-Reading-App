@@ -1,14 +1,32 @@
+import 'dart:async';
 import 'package:book_reading_app/Models/BookData.dart';
+import 'package:lottie/lottie.dart';
 import '../UI Helper/CustomColors.dart';
 import 'package:flutter/material.dart';
 import 'package:pdfx/pdfx.dart';
 
-class ReadingBook extends StatelessWidget {
+// ignore: must_be_immutable
+class ReadingBook extends StatefulWidget {
   ReadingBook({super.key, required this.comingdata});
   final BookModel comingdata;
 
-  late PdfController pdfController =
-      PdfController(document: PdfDocument.openAsset('${comingdata.pdfUrl}'));
+  @override
+  State<ReadingBook> createState() => _ReadingBookState();
+}
+
+class _ReadingBookState extends State<ReadingBook> {
+  late PdfController pdfController = PdfController(
+      document: PdfDocument.openAsset('${widget.comingdata.pdfUrl}'));
+  bool isLoading = true;
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        isLoading = false; // Set loading state to false when PDF is loaded
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +49,11 @@ class ReadingBook extends StatelessWidget {
           // color: Color.fromARGB(255, 4, 27, 31),
         ),
       ),
-      body: PdfView(controller: pdfController),
+      body: isLoading
+          ? Center(
+              child: Lottie.asset('assets/lottie/loader.json',
+                  width: 150, height: 150))
+          : PdfView(controller: pdfController),
     );
   }
 }

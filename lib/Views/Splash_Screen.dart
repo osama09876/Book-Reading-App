@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
+import '../UI Helper/CustomColors.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -56,6 +58,7 @@ class _SplashScreenState extends State<SplashScreen>
                         'WordWorth',
                         style: GoogleFonts.aclonica(
                           fontSize: 25,
+                          color: darkcolor,
                         ),
                       ),
                     ],
@@ -66,6 +69,7 @@ class _SplashScreenState extends State<SplashScreen>
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
+                    color: darkcolor,
                   ),
                 ),
 

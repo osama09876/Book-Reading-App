@@ -113,85 +113,88 @@ class _MainHomeScreenState extends State<MainHomeScreen> {
           ),
           Expanded(
             child: ListView.builder(
-              physics: BouncingScrollPhysics(),
+              // physics: BouncingScrollPhysics(),
               itemCount: BookContent.bookData.length,
               itemBuilder: (context, i) {
                 final data = BookContent.bookData[i];
                 return Padding(
                   padding: const EdgeInsets.only(left: 15, bottom: 15),
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          print('Book open');
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            print('Book open');
 
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => BookPreview(
-                                comingdata: data,
-                              ),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          height: 180,
-                          width: 140,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(.5),
-                          ),
-                          child: Image(
-                            fit: BoxFit.cover,
-                            image: AssetImage(data.bookImage!),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            data.bookName.toString(),
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Text(
-                            data.bookAuth.toString(),
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8,
-                          ),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.star,
-                                color: Colors.yellow,
-                              ),
-                              SizedBox(
-                                width: 8,
-                              ),
-                              Text(
-                                data.bookRating.toString(),
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BookPreview(
+                                  comingdata: data,
                                 ),
                               ),
-                            ],
+                            );
+                          },
+                          child: Container(
+                            height: 180,
+                            width: 140,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(.5),
+                            ),
+                            child: Image(
+                              fit: BoxFit.cover,
+                              image: AssetImage(data.bookImage!),
+                            ),
                           ),
-                        ],
-                      ),
-                    ],
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              data.bookName.toString(),
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              data.bookAuth.toString(),
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                ),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Text(
+                                  data.bookRating.toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 130,
+                    height: MediaQuery.of(context).size.height * 0.2,
                   ),
                   Text(
                     'Welcome \n Back',
@@ -55,17 +55,34 @@ class _LoginScreenState extends State<LoginScreen> {
                           .hasMatch(value)) {
                         return 'Enter valid email';
                       }
+                      return null;
                     },
                     controller: emailcontroller,
                     decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.email_outlined),
-                        hintText: 'Enter email',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(
-                              width: 3,
-                              color: Colors.black,
-                            ))),
+                      hintStyle: TextStyle(color: darkcolor),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            color: darkcolor,
+                          )),
+                      prefixIconColor: darkcolor,
+                      prefixIcon: Icon(Icons.email_outlined),
+                      hintText: 'Enter email',
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: darkcolor),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          width: 3,
+                          color: darkcolor,
+                        ),
+                      ),
+                    ),
+                    style: TextStyle(
+                      color: darkcolor,
+                    ),
                   ),
                   SizedBox(
                     height: 30,
@@ -80,28 +97,45 @@ class _LoginScreenState extends State<LoginScreen> {
                           .hasMatch(value)) {
                         return 'Enter valid password';
                       }
+                      return null;
                     },
                     controller: passwordcontroller,
                     obscureText: isVisible,
+                    style: TextStyle(
+                      color: darkcolor,
+                    ),
                     decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.lock),
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isVisible = !isVisible;
-                            });
-                          },
-                          child: Icon(isVisible
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined),
+                      hintStyle: TextStyle(color: darkcolor),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: darkcolor),
+                          borderRadius: BorderRadius.circular(15)),
+                      enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            color: darkcolor,
+                          )),
+                      prefixIconColor: darkcolor,
+                      suffixIconColor: darkcolor,
+                      prefixIcon: Icon(Icons.lock),
+                      suffixIcon: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isVisible = !isVisible;
+                          });
+                        },
+                        child: Icon(isVisible
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility_outlined),
+                      ),
+                      hintText: 'Enter password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(
+                          width: 3,
+                          color: darkcolor,
                         ),
-                        hintText: 'Enter password',
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide(
-                              width: 3,
-                              color: Colors.black,
-                            ))),
+                      ),
+                    ),
                   ),
                   SizedBox(
                     height: 40,
@@ -122,20 +156,29 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: GoogleFonts.abhayaLibre(
                               fontWeight: FontWeight.bold,
                               fontSize: 23,
+                              color: darkcolor,
                             ),
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {
-                            if (formKey.currentState!.validate()) {
-                              showMyDialog();
-                            }
-                          },
-                          child: CircleAvatar(
-                            backgroundColor: darkcolor,
-                            child: Icon(Icons.arrow_right_alt_outlined),
-                          ),
-                        )
+                            onTap: () {
+                              if (formKey.currentState!.validate()) {
+                                showMyDialog();
+                              }
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                  color: darkcolor,
+                                  borderRadius: BorderRadius.circular(50)),
+                              child: Center(
+                                child: Icon(
+                                  Icons.arrow_right_alt_outlined,
+                                  color: wrcolor,
+                                ),
+                              ),
+                            ))
                       ],
                     ),
                   ),
@@ -149,13 +192,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/opt');
+                            Navigator.pushNamed(context, '/signup');
                           },
                           child: Text(
                             'Sign Up',
                             style: GoogleFonts.abhayaLibre(
                               fontWeight: FontWeight.bold,
                               fontSize: 23,
+                              color: darkcolor,
                             ),
                           ),
                         ),
@@ -165,6 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: GoogleFonts.abhayaLibre(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
+                              color: darkcolor,
                             ),
                           ),
                         ),
@@ -201,7 +246,12 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           actions: <Widget>[
             TextButton(
-              child: const Text('OK'),
+              child: const Text(
+                'OK',
+                style: TextStyle(
+                  color: Colors.green,
+                ),
+              ),
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/otp');
               },

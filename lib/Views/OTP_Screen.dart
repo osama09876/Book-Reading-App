@@ -149,11 +149,14 @@ class _OtpScreenState extends State<OtpScreen> {
                         );
                       } else {
                         print('Error');
+                        showMyDialog();
                       }
                     },
                     child: Container(
                       height: 50,
-                      decoration: BoxDecoration(color: darkcolor),
+                      decoration: BoxDecoration(
+                          color: darkcolor,
+                          borderRadius: BorderRadius.circular(10)),
                       child: Center(
                         child: Text(
                           'Submit',
@@ -172,6 +175,43 @@ class _OtpScreenState extends State<OtpScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Future<void> showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text(
+            'Error',
+            style: TextStyle(
+              color: Colors.red,
+            ),
+          ),
+          content: const SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('You enter wrong OTP.'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text(
+                'OK',
+                style: TextStyle(
+                  color: Colors.red,
+                ),
+              ),
+              onPressed: () {
+                Navigator.pop(context, '/otp');
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
